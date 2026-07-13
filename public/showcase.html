@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Forecast vs Actual Dashboard – AI-Powered Sales Analytics</title>
+  <meta name="description" content="Zero-dependency forecast vs actual sales dashboard. Upload CSV, analyze variance, score risk, and get AI-style explanations—all in your browser, no server needed." />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #0b1020 0%, #1a2847 100%);
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #5aa7ff, #78e3aa);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero p { font-size: 1.3rem; margin-bottom: 2rem; max-width: 700px; color: #b0b0b0; }
+    .cta-button {
+      display: inline-block;
+      padding: 14px 40px;
+      background: linear-gradient(135deg, #5aa7ff, #78e3aa);
+      color: #0b1020;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 8px 24px rgba(90, 167, 255, 0.3);
+    }
+    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(90, 167, 255, 0.4); }
+    .features {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(90, 167, 255, 0.2);
+      border-radius: 12px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+    }
+    .feature-card h3 { color: #78e3aa; margin-bottom: 1rem; }
+    .feature-card p { color: #a0a0a0; font-size: 0.95rem; }
+    .section {
+      max-width: 1200px;
+      margin: 4rem auto;
+      padding: 0 2rem;
+    }
+    .section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      color: #78e3aa;
+    }
+    .tech-stack {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(120, 227, 170, 0.2);
+      border-radius: 12px;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+    .tech-stack ul { list-style: none; columns: 2; gap: 2rem; }
+    .tech-stack li { padding: 0.5rem 0; color: #a0a0a0; }
+    .tech-stack li:before { content: "✓ "; color: #78e3aa; font-weight: bold; }
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: #606060;
+      border-top: 1px solid rgba(90, 167, 255, 0.1);
+    }
+    .metric { font-size: 2rem; font-weight: bold; color: #5aa7ff; }
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2rem; }
+      .hero p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="hero">
+    <h1>📊 Forecast vs Actual</h1>
+    <p>Upload your forecast and actual sales data. Analyze variance, score risk, identify drivers, and get actionable insights—all computed deterministically in your browser.</p>
+    <a href="/app" class="cta-button">Launch Dashboard →</a>
+  </div>
+
+  <div class="section">
+    <h2>Key Features</h2>
+    <div class="features">
+      <div class="feature-card">
+        <h3>📤 CSV Upload</h3>
+        <p>Import your forecast and actual sales in seconds. Data is saved locally and never sent to a server.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📈 Variance Analysis</h3>
+        <p>Automatic KPI computation: forecast, actual, variance, accuracy, MAPE, bias, and rolling 3-month trends.</p>
+      </div>
+      <div class="feature-card">
+        <h3>⚠️ Risk Scoring</h3>
+        <p>Each dataset is graded Controlled / Watch / Critical based on accuracy and variance thresholds.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🎯 Driver Analysis</h3>
+        <p>Top customer and product variance drivers, biggest single over- and under-runs highlighted.</p>
+      </div>
+      <div class="feature-card">
+        <h3>🤖 AI Explainer</h3>
+        <p>Deterministic narrative generator—every sentence maps to a computed metric, no model hallucination.</p>
+      </div>
+      <div class="feature-card">
+        <h3>💾 Scenario Sensitivity</h3>
+        <p>Stress-test under Base / Optimistic / Downside scenarios. See how KPIs shift under alternative outcomes.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📊 Live Filters</h3>
+        <p>Filter by customer and product. Every metric, chart, and narrative recomputes instantly.</p>
+      </div>
+      <div class="feature-card">
+        <h3>📥 Export Results</h3>
+        <p>Download filtered data as CSV or generate a one-click Markdown executive summary.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>What Makes It Different</h2>
+    <div class="tech-stack">
+      <h3 style="color: #78e3aa; margin-bottom: 1rem;">Zero Dependencies. Zero Complexity.</h3>
+      <ul>
+        <li><strong>No build step.</strong> Plain HTML, CSS, and ES modules. Run `npm start` and it goes.</li>
+        <li><strong>No framework.</strong> Vanilla JavaScript. ~600 lines of pure, testable analytics core.</li>
+        <li><strong>No server.</strong> Runs entirely in your browser. Data stays on your machine.</li>
+        <li><strong>No account.</strong> No login, no cloud, no tracking. Upload, analyze, export.</li>
+        <li><strong>No model dependency.</strong> The "AI explainer" is deterministic—metrics first, narrative second.</li>
+        <li><strong>24 unit tests.</strong> Full test coverage of the analytics core.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Try It Now</h2>
+    <p style="font-size: 1.1rem; color: #b0b0b0; margin-bottom: 2rem;">
+      The dashboard ships with built-in sample data so you can explore immediately. Upload your own CSV to analyze your real forecast data.
+    </p>
+    <a href="/app" class="cta-button">Open Dashboard →</a>
+    <p style="margin-top: 2rem; color: #606060; font-size: 0.9rem;">
+      <strong>CSV Format:</strong> month, customer, product, forecast, actual (one row per customer × product × month)
+    </p>
+  </div>
+
+  <div class="section">
+    <h2>How It Works</h2>
+    <p style="color: #a0a0a0; margin-bottom: 2rem; font-size: 1.05rem;">
+      <strong>1. Load data</strong> from your CSV or use the built-in sample.<br>
+      <strong>2. Filter</strong> by customer and product to focus your analysis.<br>
+      <strong>3. Analyze</strong> with live KPI computation and risk assessment.<br>
+      <strong>4. Explore drivers</strong> — which customers and products moved the variance?<br>
+      <strong>5. Review narrative</strong> — the explainer turns metrics into actionable business language.<br>
+      <strong>6. Export</strong> results as CSV or Markdown for stakeholders.
+    </p>
+  </div>
+
+  <footer>
+    <p>Built with zero dependencies. Everything runs in your browser.</p>
+    <p style="margin-top: 1rem;">
+      <a href="https://github.com/Zaufanys/ForecastAI" style="color: #5aa7ff; text-decoration: none;">View on GitHub</a> ·
+      <a href="/app" style="color: #78e3aa; text-decoration: none;">Open Dashboard</a>
+    </p>
+  </footer>
+</body>
+</html>
