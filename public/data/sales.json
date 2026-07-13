@@ -1,0 +1,128 @@
+[
+  {
+    "month": "2026-01",
+    "customer": "Great Lakes Mobility",
+    "product": "Cooling Module",
+    "forecast": 820000,
+    "actual": 790000
+  },
+  {
+    "month": "2026-02",
+    "customer": "Great Lakes Mobility",
+    "product": "Cooling Module",
+    "forecast": 840000,
+    "actual": 856000
+  },
+  {
+    "month": "2026-03",
+    "customer": "Great Lakes Mobility",
+    "product": "Cooling Module",
+    "forecast": 880000,
+    "actual": 861000
+  },
+  {
+    "month": "2026-04",
+    "customer": "Great Lakes Mobility",
+    "product": "Cooling Module",
+    "forecast": 910000,
+    "actual": 945000
+  },
+  {
+    "month": "2026-05",
+    "customer": "Great Lakes Mobility",
+    "product": "Cooling Module",
+    "forecast": 940000,
+    "actual": 908000
+  },
+  {
+    "month": "2026-06",
+    "customer": "Great Lakes Mobility",
+    "product": "Cooling Module",
+    "forecast": 980000,
+    "actual": 1005000
+  },
+  {
+    "month": "2026-01",
+    "customer": "Motor City EV",
+    "product": "Power Inverter",
+    "forecast": 620000,
+    "actual": 590000
+  },
+  {
+    "month": "2026-02",
+    "customer": "Motor City EV",
+    "product": "Power Inverter",
+    "forecast": 650000,
+    "actual": 670000
+  },
+  {
+    "month": "2026-03",
+    "customer": "Motor City EV",
+    "product": "Power Inverter",
+    "forecast": 700000,
+    "actual": 730000
+  },
+  {
+    "month": "2026-04",
+    "customer": "Motor City EV",
+    "product": "Power Inverter",
+    "forecast": 745000,
+    "actual": 710000
+  },
+  {
+    "month": "2026-05",
+    "customer": "Motor City EV",
+    "product": "Power Inverter",
+    "forecast": 780000,
+    "actual": 760000
+  },
+  {
+    "month": "2026-06",
+    "customer": "Motor City EV",
+    "product": "Power Inverter",
+    "forecast": 820000,
+    "actual": 875000
+  },
+  {
+    "month": "2026-01",
+    "customer": "Northstar Trucks",
+    "product": "Battery Controller",
+    "forecast": 510000,
+    "actual": 525000
+  },
+  {
+    "month": "2026-02",
+    "customer": "Northstar Trucks",
+    "product": "Battery Controller",
+    "forecast": 530000,
+    "actual": 515000
+  },
+  {
+    "month": "2026-03",
+    "customer": "Northstar Trucks",
+    "product": "Battery Controller",
+    "forecast": 560000,
+    "actual": 610000
+  },
+  {
+    "month": "2026-04",
+    "customer": "Northstar Trucks",
+    "product": "Battery Controller",
+    "forecast": 590000,
+    "actual": 602000
+  },
+  {
+    "month": "2026-05",
+    "customer": "Northstar Trucks",
+    "product": "Battery Controller",
+    "forecast": 620000,
+    "actual": 650000
+  },
+  {
+    "month": "2026-06",
+    "customer": "Northstar Trucks",
+    "product": "Battery Controller",
+    "forecast": 660000,
+    "actual": 630000
+  }
+]
