@@ -448,31 +448,31 @@ canvas {
   }
 
   table {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     width: 100%;
-    min-width: 100%;
   }
 
   th, td {
-    padding: 8px 6px;
+    padding: 6px 4px;
   }
 
   table.compact th, table.compact td {
-    padding: 5px 4px;
-    font-size: 0.75rem;
+    padding: 4px 2px;
+    font-size: 0.7rem;
   }
 
   th, td {
     white-space: nowrap;
   }
 
+  th.num, td.num {
+    font-size: 0.65rem;
+  }
+
   .table-scroll {
     -webkit-overflow-scrolling: touch;
     overflow-x: auto;
-    max-width: 100%;
     width: 100%;
-    margin: 0 -12px;
-    padding: 0 12px;
   }
 
   .hint {
