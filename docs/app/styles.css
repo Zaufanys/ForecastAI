@@ -303,7 +303,262 @@ canvas {
   .span4 { grid-column: span 12; }
 }
 
+@media (max-width: 900px) {
+  header {
+    padding: 20px clamp(12px, 2vw, 32px);
+  }
+
+  header h1 {
+    font-size: clamp(1.4rem, 2.5vw, 2.2rem);
+  }
+
+  main {
+    padding: 16px clamp(12px, 2vw, 32px);
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  .controls {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .controls label {
+    flex: 1 1 auto;
+  }
+
+  .kpi strong {
+    font-size: 1.3rem;
+  }
+}
+
 @media (max-width: 760px) {
-  .grid { grid-template-columns: 1fr; }
-  .span2, .span3, .span4, .span6, .span8 { grid-column: span 1; }
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .span2, .span3, .span4, .span6, .span8 {
+    grid-column: span 1;
+  }
+
+  header {
+    padding: 16px 12px;
+  }
+
+  header h1 {
+    font-size: clamp(1.2rem, 2.2vw, 1.8rem);
+    margin-bottom: 8px;
+  }
+
+  header p {
+    font-size: 0.9rem;
+    margin: 0.4rem 0 0;
+  }
+
+  main {
+    padding: 12px;
+  }
+
+  .card {
+    padding: 12px;
+    border-radius: 14px;
+  }
+
+  .row {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .controls label {
+    width: 100%;
+  }
+
+  input, select {
+    padding: 11px 12px;
+    font-size: 16px;
+  }
+
+  button, .btn {
+    padding: 12px 16px;
+    font-size: 0.95rem;
+    width: 100%;
+    border-radius: 11px;
+  }
+
+  .upload-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-row {
+    flex-direction: column;
+  }
+
+  .btn-row button, .btn-row .btn {
+    width: 100%;
+  }
+
+  .kpi {
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .kpi strong {
+    font-size: 1.1rem;
+    margin-bottom: 4px;
+  }
+
+  .exec-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .risk-badge {
+    padding: 5px 12px;
+    font-size: 0.8rem;
+  }
+
+  .exec-headline {
+    font-size: 1rem;
+  }
+
+  canvas {
+    min-height: 220px;
+  }
+
+  table {
+    font-size: 0.85rem;
+  }
+
+  th, td {
+    padding: 8px;
+  }
+
+  table.compact th, table.compact td {
+    padding: 6px 8px;
+    font-size: 0.8rem;
+  }
+
+  .table-scroll {
+    -webkit-overflow-scrolling: touch;
+    overflow-x: auto;
+  }
+
+  .hint {
+    font-size: 0.78rem;
+  }
+
+  .actions {
+    padding-left: 14px;
+  }
+
+  .actions li {
+    margin-bottom: 4px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 12px 10px;
+  }
+
+  header h1 {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    margin-bottom: 6px;
+  }
+
+  header p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .header-top {
+    margin-bottom: 8px;
+  }
+
+  .pill {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+
+  main {
+    padding: 10px;
+  }
+
+  .grid {
+    gap: 10px;
+  }
+
+  .card {
+    padding: 10px;
+    border-radius: 12px;
+  }
+
+  .row {
+    gap: 6px;
+  }
+
+  input, select {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+  }
+
+  button, .btn {
+    padding: 10px 14px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+  }
+
+  .kpi {
+    padding: 10px;
+  }
+
+  .kpi strong {
+    font-size: 1rem;
+  }
+
+  .kpi {
+    font-size: 0.8rem;
+  }
+
+  .notice {
+    padding: 10px 12px;
+    border-left-width: 3px;
+    font-size: 0.9rem;
+  }
+
+  canvas {
+    min-height: 180px;
+  }
+
+  th, td {
+    padding: 6px;
+  }
+
+  table.compact th, table.compact td {
+    padding: 4px 6px;
+    font-size: 0.75rem;
+  }
+
+  .exec-headline {
+    font-size: 0.95rem;
+  }
+
+  .risk-badge {
+    padding: 4px 10px;
+    font-size: 0.75rem;
+  }
+
+  .footer {
+    padding: 16px 12px;
+    font-size: 0.8rem;
+  }
 }
