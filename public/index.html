@@ -28,42 +28,36 @@
     </header>
 
     <main>
-      <div class="grid">
+      <div class="layout">
+
         <!-- Controls -->
-        <section class="card span12">
-          <div class="row controls">
-            <label>
-              Customer
-              <select id="customerFilter"><option value="">All</option></select>
-            </label>
-            <label>
-              Product
-              <select id="productFilter"><option value="">All</option></select>
-            </label>
-            <label>
-              Scenario
+        <section class="card">
+          <div class="controls">
+            <label>Customer<select id="customerFilter"><option value="">All</option></select></label>
+            <label>Product<select id="productFilter"><option value="">All</option></select></label>
+            <label>Scenario
               <select id="scenarioFilter">
                 <option value="base">Base (reported)</option>
                 <option value="optimistic">Optimistic (+5%)</option>
                 <option value="downside">Downside (-8%)</option>
               </select>
             </label>
-            <div class="row btn-row">
-              <button class="primary" id="applyBtn" type="button">Apply</button>
-              <button id="exportCsvBtn" type="button">Export CSV</button>
-              <button id="exportMdBtn" type="button">Export summary (Markdown)</button>
-              <label class="btn upload-btn" for="uploadInput" title="Upload a CSV with columns: month, customer, product, forecast, actual">
-                Upload CSV
-                <input id="uploadInput" type="file" accept=".csv,text/csv" hidden />
-              </label>
-              <button id="resetBtn" type="button" title="Clear your saved data and load the built-in sample dataset" hidden>Load sample data</button>
-            </div>
+          </div>
+          <div class="btn-row">
+            <button class="primary" id="applyBtn" type="button">Apply</button>
+            <button id="exportCsvBtn" type="button">Export CSV</button>
+            <button id="exportMdBtn" type="button">Export Markdown</button>
+            <label class="btn upload-btn" for="uploadInput">
+              Upload CSV
+              <input id="uploadInput" type="file" accept=".csv,text/csv" hidden />
+            </label>
+            <button id="resetBtn" type="button" hidden>Load sample data</button>
           </div>
           <p class="hint" id="dataSourceHint"></p>
         </section>
 
         <!-- Executive summary + risk -->
-        <section class="card span12 exec">
+        <section class="card exec">
           <div class="exec-head">
             <h2>Executive Summary</h2>
             <span class="risk-badge" id="riskBadge">—</span>
@@ -72,38 +66,42 @@
           <p class="exec-sub muted" id="execRisk"></p>
         </section>
 
-        <!-- KPI tiles -->
-        <section class="card span2 kpi">
-          <span class="muted">Forecast</span><strong id="forecastKpi">$0</strong>
-        </section>
-        <section class="card span2 kpi">
-          <span class="muted">Actual</span><strong id="actualKpi">$0</strong>
-        </section>
-        <section class="card span2 kpi">
-          <span class="muted">Variance</span><strong id="varianceKpi">$0</strong>
-          <span class="muted small" id="variancePctKpi"></span>
-        </section>
-        <section class="card span2 kpi">
-          <span class="muted" title="Forecast accuracy = 1 − MAPE">Accuracy</span><strong id="accuracyKpi">0%</strong>
-        </section>
-        <section class="card span2 kpi">
-          <span class="muted" title="Mean Absolute Percentage Error across line items">MAPE</span><strong id="mapeKpi">0%</strong>
-        </section>
-        <section class="card span2 kpi">
-          <span class="muted" title="Signed mean error. Positive = under-forecasting.">Forecast bias</span>
-          <strong id="biasKpi">$0</strong>
-          <span class="muted small" id="biasTendencyKpi"></span>
-        </section>
+        <!-- KPI tiles — 3×2 on mobile, 6×1 on desktop -->
+        <div class="kpi-group">
+          <section class="card kpi">
+            <span class="muted">Forecast</span><strong id="forecastKpi">$0</strong>
+          </section>
+          <section class="card kpi">
+            <span class="muted">Actual</span><strong id="actualKpi">$0</strong>
+          </section>
+          <section class="card kpi">
+            <span class="muted">Variance</span><strong id="varianceKpi">$0</strong>
+            <span class="muted small" id="variancePctKpi"></span>
+          </section>
+          <section class="card kpi">
+            <span class="muted" title="Forecast accuracy = 1 − MAPE">Accuracy</span>
+            <strong id="accuracyKpi">0%</strong>
+          </section>
+          <section class="card kpi">
+            <span class="muted" title="Mean Absolute Percentage Error">MAPE</span>
+            <strong id="mapeKpi">0%</strong>
+          </section>
+          <section class="card kpi">
+            <span class="muted" title="Signed mean error. Positive = under-forecasting.">Forecast bias</span>
+            <strong id="biasKpi">$0</strong>
+            <span class="muted small" id="biasTendencyKpi"></span>
+          </section>
+        </div>
 
         <!-- Chart -->
-        <section class="card span8 chart-card">
+        <section class="card chart-card">
           <h2>Monthly Forecast vs Actual</h2>
           <canvas id="chart" role="img" aria-label="Bar chart comparing monthly forecast and actual sales"></canvas>
           <p class="hint" id="rollingHint"></p>
         </section>
 
         <!-- AI-style explainer -->
-        <section class="card span4">
+        <section class="card">
           <h2>AI-Style Business Explainer</h2>
           <div class="notice" id="explainBox"></div>
           <p class="hint governance">
@@ -113,28 +111,34 @@
           </p>
         </section>
 
-        <!-- Driver breakdowns -->
-        <section class="card span6">
-          <h2>Top Customer Variance</h2>
-          <table class="compact">
-            <thead>
-              <tr><th>Customer</th><th class="num">Forecast</th><th class="num">Actual</th><th class="num">Variance</th><th class="num">Var %</th></tr>
-            </thead>
-            <tbody id="customerTable"></tbody>
-          </table>
-        </section>
-        <section class="card span6">
-          <h2>Top Product Variance</h2>
-          <table class="compact">
-            <thead>
-              <tr><th>Product</th><th class="num">Forecast</th><th class="num">Actual</th><th class="num">Variance</th><th class="num">Var %</th></tr>
-            </thead>
-            <tbody id="productTable"></tbody>
-          </table>
-        </section>
+        <!-- Driver breakdowns — side by side on desktop, stacked on mobile -->
+        <div class="driver-group">
+          <section class="card">
+            <h2>Top Customer Variance</h2>
+            <div class="table-scroll">
+              <table class="compact">
+                <thead>
+                  <tr><th>Customer</th><th class="num">Forecast</th><th class="num">Actual</th><th class="num">Variance</th><th class="num">Var %</th></tr>
+                </thead>
+                <tbody id="customerTable"></tbody>
+              </table>
+            </div>
+          </section>
+          <section class="card">
+            <h2>Top Product Variance</h2>
+            <div class="table-scroll">
+              <table class="compact">
+                <thead>
+                  <tr><th>Product</th><th class="num">Forecast</th><th class="num">Actual</th><th class="num">Variance</th><th class="num">Var %</th></tr>
+                </thead>
+                <tbody id="productTable"></tbody>
+              </table>
+            </div>
+          </section>
+        </div>
 
         <!-- Detail table -->
-        <section class="card span12">
+        <section class="card">
           <h2>Variance Detail</h2>
           <div class="table-scroll">
             <table>
@@ -149,12 +153,12 @@
             </table>
           </div>
         </section>
+
       </div>
     </main>
 
     <div class="footer">
-      Forecast vs Actual Dashboard · Your data stays in your browser · Export anytime as CSV or
-      Markdown
+      Forecast vs Actual Dashboard · Your data stays in your browser · Export anytime as CSV or Markdown
     </div>
 
     <script type="module" src="app.js"></script>
