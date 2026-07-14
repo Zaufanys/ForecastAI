@@ -449,20 +449,30 @@ canvas {
 
   table {
     font-size: 0.85rem;
+    width: 100%;
+    min-width: 100%;
   }
 
   th, td {
-    padding: 8px;
+    padding: 8px 6px;
   }
 
   table.compact th, table.compact td {
-    padding: 6px 8px;
-    font-size: 0.8rem;
+    padding: 5px 4px;
+    font-size: 0.75rem;
+  }
+
+  th, td {
+    white-space: nowrap;
   }
 
   .table-scroll {
     -webkit-overflow-scrolling: touch;
     overflow-x: auto;
+    max-width: 100%;
+    width: 100%;
+    margin: 0 -12px;
+    padding: 0 12px;
   }
 
   .hint {
