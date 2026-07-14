@@ -24,13 +24,17 @@ body {
   color: var(--text);
   line-height: 1.5;
   min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 header {
-  padding: 28px clamp(16px, 3vw, 42px);
+  padding: 28px clamp(12px, 3vw, 42px);
   border-bottom: 1px solid var(--line);
   background: rgba(8, 12, 28, 0.72);
   backdrop-filter: blur(16px);
+  width: 100%;
+  overflow: hidden;
 }
 
 .header-top {
@@ -60,6 +64,8 @@ main {
   padding: 24px clamp(16px, 3vw, 42px);
   max-width: 1320px;
   margin: auto;
+  width: 100%;
+  overflow: hidden;
 }
 
 .grid {
@@ -75,6 +81,9 @@ main {
   border-radius: var(--r);
   padding: 18px;
   box-shadow: var(--shadow);
+  overflow: hidden;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .span2 { grid-column: span 2; }
@@ -246,6 +255,9 @@ label {
 /* Tables */
 .table-scroll {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  max-width: 100%;
+  width: 100%;
 }
 
 table {
@@ -253,6 +265,7 @@ table {
   border-collapse: collapse;
   border-radius: 14px;
   overflow: hidden;
+  table-layout: auto;
 }
 
 th, td {
@@ -284,9 +297,11 @@ td.num, th.num {
 
 canvas {
   width: 100%;
+  max-width: 100%;
   display: block;
   flex: 1;
   min-height: 280px;
+  height: auto;
 }
 
 .footer {
